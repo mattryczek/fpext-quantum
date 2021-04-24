@@ -1,0 +1,43 @@
+{
+    "manifest_version": 2,
+    "name": "Footprints++",
+    "version": "1.0",
+    "author": "Mateusz Ryczek",
+    "description": "Enhances the mess that is NUIT's Footprints instance.",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "mateusz@u.northwestern.edu",
+            "strict_min_version": "69.0"
+        }
+    },
+    "icons": {
+        "16": "icons/favicon-16x16.png",
+        "32": "icons/favicon-32x32.png",
+        "48": "icons/android-icon-48x48.png",
+        "96": "icons/favicon-96x96.png",
+        "128": "icons/icon-128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://itsm.northwestern.edu/MRcgi/MRTicketPage.pl*",
+                "*://itsm-fp.northwestern.edu/MRcgi/MRTicketPage.pl*"
+            ],
+            "js": [
+                "js/scratch.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "storage",
+        "contextMenus",
+        "clipboardWrite",
+        "activeTab"
+    ],
+    "web_accessible_resources": [
+        "css/*",
+        "img/*",
+        "js/*"
+    ]
+}
