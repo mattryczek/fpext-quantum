@@ -27,6 +27,20 @@
                 "js/scratch.js"
             ],
             "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "*://itsm.northwestern.edu/MRcgi/MRhomepage.pl*",
+                "*://itsm-fp.northwestern.edu/MRcgi/MRhomepage.pl*"
+            ],
+            "js": [
+                "js/inject_cards.js",
+                "js/inject_bootstrap.js"
+            ],
+            "css": [
+                "css/shim.css"
+            ],
+            "run_at": "document_idle"
         }
     ],
     "permissions": [
