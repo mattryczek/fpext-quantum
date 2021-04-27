@@ -1,0 +1,39 @@
+assignees.js --> Assignees box improvements
+
+attachments.js --> Attachment preview
+
+cards.js --> Cards Layout
+
+categories.js --> Categories search box?
+
+download_categories.js --> Add button to DL categories list
+
+fixify.js --> WYSIWYG Editor lint
+
+inject_assignees.js
+
+inject_bootstrap.js --> Cards
+
+inject_cards.js --> Cards
+
+inject_categories.js
+
+inject_css.js
+
+inject_download_categories.js
+
+inject_search_css.js
+
+inject_tabs.js
+
+options.js --> JS for extension options page
+
+pauseunpause.js --> Custom pause icon code
+
+popup.js --> Nukes the annoying popup
+
+tabs.js --> Tab management? 
+
+template_internal_notes.js --> Restore message & internal notes if accidentally browsed away
+
+templates.js --> Search for templates
