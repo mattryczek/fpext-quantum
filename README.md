@@ -1,5 +1,5 @@
 # Footprints Extension
-A Chrome extension written for Northwestern IT to extend the functionality of the Footprints IT Service Manager.
+A Firefox extension written for Northwestern IT to extend the functionality of the Footprints IT Service Manager.
 
 ## Aesthetic Changes
 

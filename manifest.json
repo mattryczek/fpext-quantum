@@ -24,9 +24,27 @@
                 "*://itsm-fp.northwestern.edu/MRcgi/MRTicketPage.pl*"
             ],
             "js": [
-                "js/scratch.js"
+                "js/pauseunpause.js",
+                "js/fixify.js",
+                "js/attachments.js",
+                "js/inject_categories.js",
+                "js/inject_assignees.js",
+                "js/fix_desc_opening.js",
+                "js/inject_download_categories.js",
+                "js/templates.js",
+                "js/template_internal_notes.js"
             ],
             "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "https://itsm.northwestern.edu/MRcgi/MRTicketPage.pl*",
+                "https://itsm-fp.northwestern.edu/MRcgi/MRTicketPage.pl*"
+            ],
+            "js": [
+                "js/inject_css.js"
+            ],
+            "run_at": "document_start"
         },
         {
             "matches": [
@@ -34,6 +52,8 @@
                 "*://itsm-fp.northwestern.edu/MRcgi/MRhomepage.pl*"
             ],
             "js": [
+                "js/popup.js",
+                "js/inject_tabs.js",
                 "js/inject_cards.js",
                 "js/inject_bootstrap.js"
             ],
@@ -41,6 +61,16 @@
                 "css/shim.css"
             ],
             "run_at": "document_idle"
+        },
+        {
+            "matches": [
+                "https://itsm.northwestern.edu/MRcgi/MRcheckboxprocess.pl*",
+                "https://itsm-fp.northwestern.edu/MRcgi/MRcheckboxprocess.pl*"
+            ],
+            "js": [
+                "js/inject_assignees.js"
+            ],
+            "run_at": "document_end"
         }
     ],
     "permissions": [
