@@ -22,7 +22,6 @@ function injectStyles(url) {
 }
 
 function injectAll() {
-  injectStyles(chrome.extension.getURL('vendor/fontawesome/css/all.min.css'));
   injectStyles(chrome.extension.getURL('css/fp-material.css'));
   injectStyles(chrome.extension.getURL('css/fp-material-dark.css'));
   injectStyles(chrome.extension.getURL('css/fixify.css'));
