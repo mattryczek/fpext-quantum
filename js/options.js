@@ -33,3 +33,10 @@ function restore_options() {
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('opts').addEventListener('click', save_options);
+
+function set_version() {
+    let version = browser.runtime.getManifest().version;
+    document.getElementById('version').innerText = "Footprints++ v" + version;
+}
+
+set_version();
