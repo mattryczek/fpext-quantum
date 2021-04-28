@@ -168,7 +168,8 @@ async function get_full_desc(button, ticket_num) {
                     document.getElementById("descm_body").innerHTML = desc.innerHTML;
                     document.getElementById("descm_edit").setAttribute("onclick", "goToEdit(" + ticket_num + ", 1);");
 
-                    $("#desc_modal").modal('show');
+                    let tmp_modal = new bootstrap.Modal(document.getElementById("desc_modal"));
+                    tmp_modal.show();
 
                     button.lastChild.remove();
 
@@ -420,7 +421,7 @@ function create_card() {
 function create_modal() {
     let modal_shim = document.createElement('div');
 
-    modal_shim.innerHTML = '<div class="modal fade" id="desc_modal" tabindex="-1" role="dialog"> <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content"> <div class="modal-header"> <h6 class="modal-title" id="descm_title">Modal title</h6> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body"> <div class="d-flex justify-content-center" id="descm_body"> <div class="spinner-border" role="status"> <span class="sr-only">Loading...</span> </div> </div> </div> <div class="modal-footer"> <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary" id="descm_edit">Edit</button> </div> </div> </div> </div>';
+    modal_shim.innerHTML = '<div class="modal fade" id="desc_modal" tabindex="-1" role="dialog"> <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content"> <div class="modal-header"> <h6 class="modal-title" id="descm_title">Modal title</h6> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> </div> <div class="modal-body"> <div class="d-flex justify-content-center" id="descm_body"> <div class="spinner-border" role="status"> <span class="sr-only">Loading...</span> </div> </div> </div> <div class="modal-footer"> <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button> <button type="button" class="btn btn-primary" id="descm_edit">Edit</button> </div> </div> </div> </div>';
 
     let modal = modal_shim.firstChild;
 
