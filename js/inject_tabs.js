@@ -1,4 +1,4 @@
-chrome.storage.sync.get({
+browser.storage.sync.get({
     tabs: true
 }, items => {
     window.addEventListener("load", () => {

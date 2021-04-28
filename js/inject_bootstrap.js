@@ -1,4 +1,4 @@
-chrome.storage.sync.get({
+browser.storage.sync.get({
     enableCards: true
 }, function(items) {
     if (!items.enableCards) {

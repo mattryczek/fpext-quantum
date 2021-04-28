@@ -1,4 +1,4 @@
-chrome.storage.sync.get({
+browser.storage.sync.get({
     showDownloadCategories: false
 }, items => {
     if (items.showDownloadCategories) {
