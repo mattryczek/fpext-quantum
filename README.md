@@ -1,6 +1,14 @@
 # Footprints++
 A Firefox extension written for Northwestern IT to extend the functionality of the Footprints IT Service Manager. Based on code from the OG [Footprints Extension](https://github.com/mattryczek/footprints-extension) used by Tier 1 students to streamline daily work.
 
+# Installation
+
+The current v1.0 release is provided as-is in the [releases](https://github.com/mattryczek/fpext-quantum/releases/tag/v1.0) page. It is not signed (coming soon) and thus must be loaded manually as a temporary add-on. As soon as Mozilla signs the add-on the releases page will be updated with a new ZIP. From there the extension can easily be installed permanently by loading the .zip file into Firefox.
+
+Eventually, the extension should get approved for distribution on the Firefox add-on store, and will be available at 
+
+https://addons.mozilla.org/en-US/firefox/addon/footprintsplusplus/
+
 # Aesthetic Changes
 
 ### Card Layout
