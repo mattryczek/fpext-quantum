@@ -14,13 +14,13 @@ The ticket number in the bottom left is colored based on issue status, and it ca
 
 Along with the card layout comes a new navbar that scrolls with the page, so you can search and look up other functions no matter how many tickets you are looking at on any given page. 
 
-![Navbar](.//media/Navbar.png?raw=true)
+![Navbar](../media/Navbar.png?raw=true)
 
 ### Options
 
 The extension creates a favicon charm in your extension toolbar. This is a quick way to know you are running the extension. Clicking this takes you to the settings page, where you can quickly determine what version of the extension you are running, and what options you have selected.
 
-![Options](.//media/Options.png?raw=true)
+![Options](../media/Options.png?raw=true)
 
 # Features
 This extension provides a number of features that improve the experience of using Footprints.
