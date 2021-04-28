@@ -17,6 +17,15 @@
         "96": "icons/favicon-96x96.png",
         "128": "icons/icon-128.png"
     },
+    "options_ui": {
+        "page": "html/options.html",
+        "open_in_tab": false
+    },
+    "browser_action": {
+        "default_icon": "icons/favicon-96x96.png",
+        "default_title": "Footprints++",
+        "default_popup": "html/options.html"
+    },
     "content_scripts": [{
             "matches": [
                 "*://itsm.northwestern.edu/MRcgi/MRTicketPage.pl*",
@@ -81,11 +90,10 @@
     ],
     "permissions": [
         "storage",
-        "contextMenus",
-        "clipboardWrite",
-        "activeTab"
+        "clipboardWrite"
     ],
     "web_accessible_resources": [
+        "html",
         "css/*",
         "img/*",
         "js/*"
