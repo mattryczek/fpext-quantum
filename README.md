@@ -12,13 +12,13 @@ The ticket number in the bottom left is colored based on issue status, and it ca
 
 ### Navbar 
 
-Along with the card layout comes a new navbar that scrolls with the page, so you can search and look up other functions no matter how many tickets you are looking at on any given page. 
+Along with the card layout comes a new navbar that scrolls with the page, so you can search and perform other functions no matter how many tickets you are looking at on any given page. 
 
 ![Navbar](../media/Navbar.png?raw=true)
 
 ### Options
 
-The extension creates a favicon charm in your extension toolbar. This is a quick way to know you are running the extension. Clicking this takes you to the settings page, where you can quickly determine what version of the extension you are running, and what options you have selected.
+The extension creates a favicon charm in your extension toolbar, this is a quick way to know you are running the extension. Clicking this takes you to the settings page where you can edit your preferences. The footer also tells you what extension version you are running.
 
 ![Options](../media/Options.png?raw=true)
 
@@ -103,7 +103,7 @@ cause an issue until the email has already been sent to the user. Fixify prevent
 
 ### User Specified Columns
 
-The current number of columns is hardcoded to 3, pending possible change to 4. This should really be configurable by the user as everyone's monitor/setup is different.  A future release will allow users to specify a custom  `column-size` in the settings.
+The current number of columns is hardcoded to 3, pending possible change to 4. This should really be configurable by the user as everyone's monitor/setup is different.  A future release will allow users to specify a custom `column-size` in the settings.
 
 ### Modern Default View
 
@@ -111,18 +111,18 @@ This honestly should've been implemented first; take the original FP table style
 
 ### Advanced Assignee Options
 
-Code for [pickup_ticket](https://github.com/mattryczek/fpext-quantum/blob/2f7d9881d9b6cf5448985e3d281d3c1ec75cd8ee/js/assignees.js#L87-L101) and [assign_my_team](https://github.com/mattryczek/fpext-quantum/blob/2f7d9881d9b6cf5448985e3d281d3c1ec75cd8ee/js/assignees.js#L103-L121) already exists and has been tested (mostly). It needs a GUI implementation, although you _could_ always open the console and call the methods manually for now, if you're curious.
+Code for [pickup_ticket](https://github.com/mattryczek/fpext-quantum/blob/2f7d9881d9b6cf5448985e3d281d3c1ec75cd8ee/js/assignees.js#L87-L101) and [assign_my_team](https://github.com/mattryczek/fpext-quantum/blob/2f7d9881d9b6cf5448985e3d281d3c1ec75cd8ee/js/assignees.js#L103-L121) already exists and has been tested (mostly). It needs a GUI implementation, although you _could_ always open the console and call the methods manually if you're curious.
 
 ### Ticket Page Redesign
 
-There is _so_ much info thrown at you on the ticket page, when you probably only need to interact with like 4-5 things (for a simple update anyway). The new ticket page will present relevant info in an easy-to-digest format, and hide everything else behind toggles. 
+There is _so_ much info thrown at you on the ticket page, when you probably only need to interact with 4-5 things (for a simple update anyway). The new ticket page will present relevant info in an easy-to-digest format, and hide everything else behind toggles. 
 
 # Known Bugs
 
 ### Spacing Issues
 
->Not really sure how to reproduce it yet, but sometimes the offset between the `navbar` and `cards` div is set to the collapsed version instead of the correct viewport's version. This can be fixed by refreshing the page.
+>Not really sure how to reproduce it yet, but sometimes the offset between the `navbar` and `cards` div is set to the collapsed version instead of the correct viewport's version. Refreshing the page with either the built in refresh button or `F5` solves the issue.
 
 ### No Cards Rendered
 
->Sometimes FP doesn't fetch new tickets when loading the homepage. This leaves the `card` render engine with nothing to draw. Refreshing the page with either the built in refresh button or `F5` solves the issue.
+>Sometimes FP doesn't fetch new tickets when loading the homepage, or after the auto refresh. This leaves the `card` render engine with nothing to draw. Refreshing the page with either the built in refresh button or `F5` solves the issue.
