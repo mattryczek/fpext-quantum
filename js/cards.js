@@ -56,7 +56,7 @@ function transform() {
     create_modal();
     create_navbar();
     init_navbar();
-    setTimeout("create_offset()", 150);
+    setTimeout(create_offset(), 150);
 
 }
 

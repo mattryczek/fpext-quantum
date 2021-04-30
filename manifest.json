@@ -49,8 +49,10 @@
                 "https://itsm.northwestern.edu/MRcgi/MRTicketPage.pl*",
                 "https://itsm-fp.northwestern.edu/MRcgi/MRTicketPage.pl*"
             ],
-            "js": [
-                "js/inject_css.js"
+            "css": [
+                "css/fp-material.css",
+                "css/fixify.css",
+                "css/attachments.css"
             ],
             "run_at": "document_start"
         },
@@ -60,7 +62,8 @@
                 "*://itsm-fp.northwestern.edu/MRcgi/MRhomepage.pl*"
             ],
             "css": [
-                "css/shim.css"
+                "css/shim.css",
+                "css/bootstrap.css"
             ],
             "run_at": "document_start"
         },
@@ -73,7 +76,7 @@
                 "js/popup.js",
                 "js/inject_tabs.js",
                 "js/inject_cards.js",
-                "js/inject_bootstrap.js"
+                "js/bootstrap.js"
             ],
             "run_at": "document_idle"
         },
@@ -93,7 +96,6 @@
         "clipboardWrite"
     ],
     "web_accessible_resources": [
-        "html",
         "css/*",
         "img/*",
         "js/*"
