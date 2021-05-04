@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Footprints++",
-    "version": "1.1",
+    "version": "1.2",
     "author": "Mateusz Ryczek",
     "description": "Enhances the mess that is NUIT's Footprints instance.",
     "browser_specific_settings": {
