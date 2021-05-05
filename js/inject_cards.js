@@ -8,6 +8,6 @@ browser.storage.sync.get({
     }
 
     const script = document.createElement("script");
-    script.setAttribute("src", chrome.extension.getURL('/js/cards.js'));
+    script.setAttribute("src", browser.extension.getURL('/js/cards.js'));
     document.body.appendChild(script);
 });

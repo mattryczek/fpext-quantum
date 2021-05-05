@@ -12,7 +12,7 @@ function injectSearch() {
         if (!items.dark)
             return;
 
-        injectSearchStyles(chrome.extension.getURL('css/homepage.css'));
+        injectSearchStyles(browser.extension.getURL('css/homepage.css'));
     });
 }
 
