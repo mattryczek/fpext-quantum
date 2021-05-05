@@ -1,6 +1,8 @@
 clean_up();
 handle_errors();
-let tickets = document.getElementsByClassName("x-grid3-row");
+
+let tickets = document.querySelector(".x-grid3-row");
+let prefix = 'table > tbody > tr > .x-grid3-td-hpColHeading_';
 transform();
 
 async function clean_up() {
@@ -30,7 +32,7 @@ function handle_errors() {
     let maybe_error;
 
     try {
-        maybe_error = document.getElementsByClassName("pageHeader")[0].textContent;
+        maybe_error = document.querySelector(".pageHeader").innerText;
 
         switch (maybe_error) {
             case "Login Error":
@@ -38,7 +40,7 @@ function handle_errors() {
                 break;
 
             case "FootPrints Service Core Error":
-                let msg = document.getElementsByClassName("dialogMainContent")[0].innerText;
+                let msg = document.querySelector(".dialogMainContent").innerText;
                 create_error(msg);
                 break;
         }
@@ -47,7 +49,7 @@ function handle_errors() {
 
 function transform() {
 
-    if (document.getElementsByClassName("x-grid-empty").length === 1) {
+    if (document.querySelector(".x-grid-empty").length === 1) {
         no_tickets();
     } else {
         document.body.prepend(create_container(tickets.length, 3));
@@ -65,7 +67,7 @@ function no_tickets() {
 
     let banner;
 
-    switch (document.getElementsByClassName("x-grid-empty")[0].textContent) {
+    switch (document.querySelector(".x-grid-empty").innerText) {
         case "There were no matches to your query.":
             banner = create_banner("There were no matches to your query", "alert-danger");
             break;
@@ -119,8 +121,8 @@ function init_navbar() {
 
     document.getElementById("searches_div").prepend(searches);
 
-    let loaded = document.getElementsByClassName("pagination")[0].firstElementChild.textContent;
-    let total = document.getElementsByClassName("pagination")[0].children[1].textContent.split(' ')[2];
+    let loaded = document.querySelector('.pagination > span').innerText;
+    let total = document.querySelector('.pagination > .quiet').innerText.split(' ')[2];
 
     document.getElementById("count_badge").textContent = loaded + ' / ' + total;
 
@@ -137,8 +139,8 @@ function init_navbar() {
 
     document.getElementById("search_input").value = document.quickSearch.SEARCHS.value;
 
-    let username = document.getElementsByClassName("breadcrumbdarkblue")[0].textContent.split(' ')[1];
-    document.getElementById("username").textContent = "Welcome, " + username + "!";
+    let username = document.querySelector('.breadcrumbdarkblue').innerText.split(' ')[1];
+    document.getElementById("username").innerText = "Welcome, " + username + "!";
 
     document.getElementById("search_input").onkeypress = function(e) {
         if (e.keyCode === 13) {
@@ -180,15 +182,15 @@ async function get_full_desc(button, ticket_num) {
 }
 
 function get_ticket_num(ticket) {
-    return ticket.rows[0].getElementsByClassName("x-grid3-td-hpColHeading_mr")[0].firstElementChild.firstElementChild.textContent;
+    return ticket.querySelector(prefix + 'mr > div > span').innerText;
 }
 
 function get_title(ticket) {
-    return ticket.rows[0].getElementsByClassName("x-grid3-td-hpColHeading_title")[0].firstElementChild.firstElementChild.textContent;
+    return ticket.querySelector(prefix + 'title > div > a').innerText;
 }
 
 function get_description(ticket) {
-    let desc = ticket.rows[0].getElementsByClassName("x-grid3-td-hpColHeading_title")[0].firstChild.childNodes[1].textContent;
+    let desc = ticket.querySelector(prefix + 'title > div > a').nextSibling.data;
 
     if (desc.length === 1) {
         desc = 'Enable "Collapsed Description in Title" within your prefs to show previews!';
@@ -205,7 +207,7 @@ function get_status(ticket) {
     let status;
 
     try {
-        status = ticket.rows[0].getElementsByClassName("x-grid3-td-hpColHeading_status")[0].firstChild.textContent;
+        status = ticket.querySelector(prefix + 'status > div').innerText;
 
     } catch {
         status = "DISABLED";
@@ -214,14 +216,14 @@ function get_status(ticket) {
 }
 
 function get_last_edit(ticket) {
-    return ticket.rows[0].getElementsByClassName("x-grid3-td-hpColHeading_datetimeago")[0].firstChild.textContent;
+    return ticket.querySelector(prefix + 'datetimeago > div').innerText;
 }
 
 function get_priority(ticket) {
     let priority;
 
     try {
-        priority = ticket.rows[0].getElementsByClassName("x-grid3-td-hpColHeading_priority")[0].firstChild.textContent;
+        priority = ticket.querySelector(prefix + 'priority > div > span').innerText;
     } catch {
         priority = "DISABLED";
     }
@@ -233,7 +235,7 @@ function dept_support(ticket) {
     let support;
 
     try {
-        support = ticket.rows[0].getElementsByClassName("x-grid3-td-hpColHeading_Departmental__bSupport")[0].firstChild.textContent;
+        support = ticket.querySelector(prefix + 'Departmental__bSupport > div').innerText;
 
         if (support === '-') {
             support = "none";
