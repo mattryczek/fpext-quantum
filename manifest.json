@@ -75,8 +75,7 @@
             "js": [
                 "js/popup.js",
                 "js/inject_tabs.js",
-                "js/inject_cards.js",
-                "js/bootstrap.js"
+                "js/inject_cards.js"
             ],
             "run_at": "document_idle"
         },

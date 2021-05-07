@@ -10,4 +10,8 @@ browser.storage.sync.get({
     const script = document.createElement("script");
     script.setAttribute("src", browser.extension.getURL('/js/cards.js'));
     document.body.appendChild(script);
+
+    const bootstrap_script = document.createElement("script");
+    bootstrap_script.setAttribute("src", browser.extension.getURL('/js/bootstrap.js'));
+    document.body.appendChild(bootstrap_script);
 });
