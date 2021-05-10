@@ -175,8 +175,6 @@ async function get_full_desc(button, ticket_num) {
                     tmp_modal.show();
 
                     button.lastChild.remove();
-
-                    console.log("Fetched " + ticket_num);
                 }
             }
         });
