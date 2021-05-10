@@ -123,7 +123,7 @@ function init_navbar() {
     document.getElementById("searches_div").prepend(searches);
 
     let loaded = document.querySelector('.pagination > span').innerText;
-    let total = document.querySelector('.pagination > .quiet').innerText.split(' ')[2];
+    let total = document.querySelector('.pagination > .quiet').innerText.split(' ')[1];
 
     document.getElementById("count_badge").textContent = loaded + ' / ' + total;
 
@@ -455,6 +455,8 @@ function create_container(size, columns) {
     container.classList = "container mb-4";
     container.id = "cards";
 
+    let tickets_iter = tickets.entries();
+
     let spare = size % columns;
     let rows = (size - spare) / columns;
 
@@ -462,7 +464,7 @@ function create_container(size, columns) {
         let row = create_row();
 
         for (let j = 0; j < columns; j++) {
-            row.appendChild(create_card(tickets.entries().next().value[1]));
+            row.appendChild(create_card(tickets_iter.next().value[1]));
         }
 
         container.appendChild(row);
@@ -472,7 +474,7 @@ function create_container(size, columns) {
         let row = create_row();
 
         for (let i = 0; i < spare; i++) {
-            row.appendChild(create_card(tickets.entries().next().value[1]));
+            row.appendChild(create_card(tickets_iter.next().value[1]));
         }
 
         container.appendChild(row);
