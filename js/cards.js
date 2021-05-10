@@ -1,8 +1,9 @@
 clean_up();
 handle_errors();
 
-let tickets = document.querySelector(".x-grid3-row");
+let tickets = document.querySelectorAll(".x-grid3-row");
 let prefix = 'table > tbody > tr > .x-grid3-td-hpColHeading_';
+
 transform();
 
 async function clean_up() {
@@ -49,7 +50,7 @@ function handle_errors() {
 
 function transform() {
 
-    if (document.querySelector(".x-grid-empty").length === 1) {
+    if (document.querySelector(".x-grid-empty") !== null) {
         no_tickets();
     } else {
         document.body.prepend(create_container(tickets.length, 3));
@@ -329,8 +330,7 @@ function create_row() {
     return row;
 }
 
-function create_card() {
-    let curr_ticket = tickets[0].firstChild;
+function create_card(curr_ticket) {
     let ticket_num = get_ticket_num(curr_ticket);
 
     let card = document.createElement('div');
@@ -415,7 +415,7 @@ function create_card() {
     card.appendChild(button_div);
     card.appendChild(card_footer);
 
-    tickets[0].classList = "parsed";
+    curr_ticket.classList = "parsed";
 
     return card;
 }
@@ -433,7 +433,7 @@ function create_modal() {
 function create_navbar() {
     let navbar_shim = document.createElement('div');
 
-    navbar_shim.innerHTML = '<div class="fixed-top" id="navwhole"> <div class="collapse" id="hidden_opts"> <div class="bg-light p-4"> <h4 id="username" class="mb-3">Welcome, $User!</h4> <button type="button" class="btn btn-danger" onclick="signout()">Sign Out</button> <button type="button" class="btn btn-outline-secondary" onclick="prefs()">Preferences</button> </div> </div> <nav class="border-top border-bottom border-secondary navbar navbar-expand-md navbar-light bg-light" id="justbar"> <a class="navbar-brand" href="#"><strong>ITSM</strong></a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navnav"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navnav"> <div class="navbar-nav"> <a class="nav-item nav-link" id="go_home">Home</a> <a class="nav-item nav-link active" onclick="goToCreate(1);">New Issue</a> <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="reports" role="button" data-bs-toggle="dropdown">Reports</a> <div class="dropdown-menu" id="reports_drop"> </div> </li> </div> <div class="me-2" id="searches_div"> </div> <div class="btn-group" role="group"> <button class="btn btn-sm btn-outline-secondary" type="button" onclick="processDisplayDropdown(true)"> Refresh </button> <button class="btn btn-sm btn-outline-secondary" type="button" onclick="document.prevpage.submit()"><span>«</span></button> <button class="btn btn-sm btn-outline-secondary" type="button" onclick="document.nextpage.submit()"><span>»</span></button> </div> <span class=" ms-1 badge bg-secondary" data-bs-toggle="tooltip" data-placement="bottom" title="Tickets Loaded / Total" id="count_badge">$count</span> </div> <form class="form-inline my-2 me-2"> <div class="input-group"> <input type="text" class="form-control" id="search_input" placeholder="Search..."> <div class="input-group-append"> <button class="btn btn-outline-secondary" type="button" onclick="goto_ticket()">Ticket</button> <button class="btn btn-outline-secondary" type="button" onclick="do_search()">Query</button> <button class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown"></button> <div class="dropdown-menu" id="query_drop"> <a class="dropdown-item" onclick="update_search(this)">Title</a> <a class="dropdown-item" onclick="update_search(this)">Keyword</a> </div> </div> </div> </form> <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#hidden_opts"> ⚙ </button> </nav> </div>';
+    navbar_shim.innerHTML = '<div class="fixed-top" id="navwhole"> <div class="collapse" id="hidden_opts"> <div class="bg-light p-4"> <h4 id="username" class="mb-3">Welcome, $User!</h4> <button type="button" class="btn btn-danger" onclick="signout()">Sign Out</button> <button type="button" class="btn btn-outline-secondary" onclick="prefs()">Preferences</button> </div> </div> <nav class="border-top border-bottom border-secondary navbar navbar-expand-md navbar-light bg-light" id="justbar"> <a class="navbar-brand ms-2" href="#"><strong>ITSM</strong></a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navnav"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navnav"> <div class="navbar-nav"> <a class="nav-item nav-link" id="go_home">Home</a> <a class="nav-item nav-link active" onclick="goToCreate(1);">New Issue</a> <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="reports" role="button" data-bs-toggle="dropdown">Reports</a> <div class="dropdown-menu" id="reports_drop"> </div> </li> </div> <div class="me-2" id="searches_div"> </div> <div class="btn-group" role="group"> <button class="btn btn-sm btn-outline-secondary" type="button" onclick="processDisplayDropdown(true)"> Refresh </button> <button class="btn btn-sm btn-outline-secondary" type="button" onclick="document.prevpage.submit()"><span>«</span></button> <button class="btn btn-sm btn-outline-secondary" type="button" onclick="document.nextpage.submit()"><span>»</span></button> </div> <span class=" ms-1 badge bg-secondary" data-bs-toggle="tooltip" data-placement="bottom" title="Tickets Loaded / Total" id="count_badge">$count</span> </div> <form class="form-inline my-2 me-2"> <div class="input-group"> <input type="text" class="form-control" id="search_input" placeholder="Search..."> <div class="input-group-append"> <button class="btn btn-outline-secondary" type="button" onclick="goto_ticket()">Ticket</button> <button class="btn btn-outline-secondary" type="button" onclick="do_search()">Query</button> <button class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown"></button> <div class="dropdown-menu" id="query_drop"> <a class="dropdown-item" onclick="update_search(this)">Title</a> <a class="dropdown-item" onclick="update_search(this)">Keyword</a> </div> </div> </div> </form> <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#hidden_opts"> ⚙ </button> </nav> </div>';
 
     let navbar = navbar_shim.firstChild;
 
@@ -462,7 +462,7 @@ function create_container(size, columns) {
         let row = create_row();
 
         for (let j = 0; j < columns; j++) {
-            row.appendChild(create_card());
+            row.appendChild(create_card(tickets.entries().next().value[1]));
         }
 
         container.appendChild(row);
@@ -472,13 +472,13 @@ function create_container(size, columns) {
         let row = create_row();
 
         for (let i = 0; i < spare; i++) {
-            row.appendChild(create_card());
+            row.appendChild(create_card(tickets.entries().next().value[1]));
         }
 
         container.appendChild(row);
     }
 
-    container.style.maxWidth = "5000px";
+    container.style.maxWidth = "4096px";
 
     fragment.appendChild(container);
 
